@@ -17,6 +17,6 @@
       <ImageView fx:id="imgMiniaturka" fitHeight="302.0" fitWidth="340.0" layoutX="447.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" />
       <TextField fx:id="txtAdresStrony" editable="false" layoutX="59.0" layoutY="565.0" prefHeight="25.0" prefWidth="597.0" />
       <Label layoutX="59.0" layoutY="548.0" text="Adres strony" />
-      <Button fx:id="btnPokazInfografike" layoutX="676.0" layoutY="477.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Pokaż" />
+      <Button fx:id="btnPokazInfografike" layoutX="676.0" layoutY="477.0" mnemonicParsing="false" onAction="#btnPokaz" prefHeight="25.0" prefWidth="99.0" text="Pokaż" />
    </children>
 </AnchorPane>
