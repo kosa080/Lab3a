@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.lublin.wsei.java.cwiczenia.Controller">
    <children>
-      <Button fx:id="btnPrzejdzDoStrony" layoutX="676.0" layoutY="565.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Załaduj" />
+      <Button fx:id="btnPrzejdzDoStrony" layoutX="676.0" layoutY="565.0" mnemonicParsing="false" onAction="#btnZaladujStrone" prefHeight="25.0" prefWidth="99.0" text="Załaduj" />
       <ListView fx:id="lstInfografiki" layoutX="59.0" layoutY="100.0" prefHeight="432.0" prefWidth="375.0" />
       <Button layoutX="82.0" layoutY="62.0" mnemonicParsing="false" onAction="#btnOpenFileAction" text="Otwórz plik" textFill="RED" />
       <Label fx:id="lbFile" layoutX="195.0" layoutY="66.0" prefHeight="17.0" prefWidth="580.0" style="-fx-font-style: italic;" text="Proszę wczytać plik .." textFill="#a4a4a4" />

@@ -1,5 +1,6 @@
 package pl.lublin.wsei.java.cwiczenia;
 
+import javafx.application.HostServices;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 
@@ -23,6 +25,18 @@ public class Controller {
     public TextField txtAdresStrony;
     public Button btnPokazInfografike;
     public Button btnPrzejdzDoStrony;
+
+    private Infografika selInfografika;
+    private HostServices hostServices;
+    private Stage stage;
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public void setHostServices(HostServices hostServices) {
+        this.hostServices = hostServices;
+    }
 
     FileChooser fileChooser = new FileChooser();
     FileChooser.ExtensionFilter xmlFilter = new FileChooser.ExtensionFilter("Pliki XML (*.xml)","*.xml");
@@ -40,13 +54,15 @@ public class Controller {
                 public void changed(ObservableValue<? extends Number> observableValue, Number old_val, Number new_val) {
                     int index = new_val.intValue();
                     if (index != -1) {
-                        txtAdresStrony.setText(igList.infografiki.get(index).strona);
-                        Image image = new Image(igList.infografiki.get(index).miniatura);
+                        selInfografika = igList.infografiki.get(index);
+                        txtAdresStrony.setText(selInfografika.strona);
+                        Image image = new Image(selInfografika.miniatura);
                         imgMiniaturka.setImage(image);
                     }
                     else {
                         txtAdresStrony.setText("");
                         imgMiniaturka.setImage(null);
+                        selInfografika = null;
                     }
                 }
             }
@@ -64,5 +80,9 @@ public class Controller {
         else {
             lbFile.setText("Proszę wczytać plik ...");
         }
+    }
+    public void btnZaladujStrone(ActionEvent actionEvent) {
+        if (selInfografika != null)
+            hostServices.showDocument(selInfografika.strona);
     }
 }
